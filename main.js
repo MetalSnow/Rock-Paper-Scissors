@@ -26,6 +26,43 @@ function playRound(playerSelection, computerSelection) {
   return result;
 }
 
-const playerSelection = "rock".toLowerCase();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+// Create function that determines a best-of-five game
+//  The function takes scores for both the player and the computer and returns the overall winner.
+function game() {
+  const totalRounds = 5;
+  let playerScore = 0;
+  let computerScore = 0;
+
+  // Loop through rounds
+  for (let i = 0; i <= totalRounds; i++) {
+    const playerSelection = prompt("Choose Rock, Paper or Scissors");
+    const computerSelection = getComputerChoice();
+    let roundResult = playRound(
+      playerSelection.toLowerCase(),
+      computerSelection
+    );
+    console.log(roundResult);
+    // Update scores based on the result of the round
+    if (roundResult.charAt(4) === "w") {
+      console.log(
+        `Score: player ${++playerScore} -- computer ${computerScore}`
+      );
+    } else if (roundResult.charAt(4) === "l") {
+      console.log(
+        `Score: player ${playerScore} -- computer ${++computerScore}`
+      );
+    } else {
+      console.log(`Score: player ${playerScore} -- computer ${computerScore}`);
+    }
+  }
+
+  // Determine the winner based on the final scores
+  if (playerScore === 3) {
+    console.log("Victory: You Won!!");
+  } else if (computerScore === 3) {
+    console.log("Defeat: You Lost!!");
+  } else {
+    console.log("There's No Winner.");
+  }
+}
+game();
