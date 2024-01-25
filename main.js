@@ -1,13 +1,9 @@
-// Create a function to generate the computer's choice
-// The function randomly selects rock, paper, or scissors and returns the chosen value
 function getComputerChoice() {
   let array = ["rock", "paper", "scissors"];
   let randomEl = array[Math.floor(Math.random() * array.length)];
   return randomEl;
 }
 
-// Create a function to determine the result of a round based on player and computer selections
-// The function returns the result
 function playRound(playerSelection, computerSelection) {
   let result;
 
@@ -26,8 +22,6 @@ function playRound(playerSelection, computerSelection) {
   return result;
 }
 
-// Create function that determines a best-of-five game
-//  The function takes scores for both the player and the computer and returns the overall winner.
 function game() {
   const totalRounds = 5;
   let playerScore = 0;
