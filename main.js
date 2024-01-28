@@ -20,7 +20,6 @@ function playRound(playerSelection, computerSelection) {
   } else {
     result = `You lose! ${computerSelection} beats ${playerSelection}.`;
   }
-
   resultsContainer.innerHTML = "";
 
   let playerSlected = document.createElement("div");
@@ -34,53 +33,9 @@ function playRound(playerSelection, computerSelection) {
   resultsContainer.appendChild(playerSlected);
   resultsContainer.appendChild(computerSlected);
   resultsContainer.appendChild(roundResults);
+
+  return result;
 }
-
-// function game() {
-//   const totalRounds = 5;
-//   let playerScore = 0;
-//   let computerScore = 0;
-
-//   // Loop through rounds
-//   for (let i = 1; i <= totalRounds; i++) {
-//     const playerSelection = prompt("Choose Rock, Paper or Scissors");
-//     const computerSelection = getComputerChoice();
-//     let roundResult = playRound(
-//       playerSelection.toLowerCase(),
-//       computerSelection
-//     );
-//     console.log("Round: ", i);
-//     console.log(roundResult);
-
-//     // Update scores based on the result of the round
-//     if (roundResult.charAt(4) === "w") {
-//       console.log(
-//         `Score: player ${++playerScore} -- computer ${computerScore}`
-//       );
-//     } else if (roundResult.charAt(4) === "l") {
-//       console.log(
-//         `Score: player ${playerScore} -- computer ${++computerScore}`
-//       );
-//     } else {
-//       console.log(`Score: player ${playerScore} -- computer ${computerScore}`);
-//     }
-
-//     // Determine the winner based on the final scores
-//     if (playerScore === 3 || (i === 5 && playerScore > computerScore)) {
-//       console.log("Victory: You Won!!");
-//       break;
-//     } else if (
-//       computerScore === 3 ||
-//       (i === 5 && playerScore < computerScore)
-//     ) {
-//       console.log("Defeat: You Lost!!");
-//       break;
-//     } else if (i === 5 && playerScore === computerScore) {
-//       console.log("There's No Winner.");
-//     }
-//   }
-// }
-// game();
 
 //Get Buttons
 let rock = document.querySelector("#rockBtn");
@@ -88,14 +43,61 @@ let paper = document.querySelector("#paperBtn");
 let scissors = document.querySelector("#scissorsBtn");
 
 //Add Event Listeners
+let playerSelection;
 rock.addEventListener("click", () => {
-  playRound("rock", getComputerChoice());
+  playerSelection = "rock";
+  playRound(playerSelection, getComputerChoice());
+  game();
 });
 
 paper.addEventListener("click", () => {
-  playRound("paper", getComputerChoice());
+  playerSelection = "paper";
+  playRound(playerSelection, getComputerChoice());
+  game();
 });
 
 scissors.addEventListener("click", () => {
-  playRound("scissors", getComputerChoice());
+  playerSelection = "scissors";
+  playRound(playerSelection, getComputerChoice());
+  game();
 });
+
+let roundSection = document.querySelector(".rounds");
+let scoreSection = document.querySelector(".score");
+
+// game() variables
+let totalRounds = 0;
+let playerScore = 0;
+let computerScore = 0;
+
+function game() {
+  totalRounds += 1;
+
+  let roundResult = playRound(playerSelection, getComputerChoice());
+  console.log("Round: ", totalRounds);
+  console.log(roundResult);
+
+  // Update scores based on the result of the round
+  if (roundResult.charAt(4) === "w") {
+    console.log(`Score: player ${++playerScore} -- computer ${computerScore}`);
+  } else if (roundResult.charAt(4) === "l") {
+    console.log(`Score: player ${playerScore} -- computer ${++computerScore}`);
+  } else {
+    console.log(`Score: player ${playerScore} -- computer ${computerScore}`);
+  }
+
+  // Determine the winner based on the final scores
+  if (playerScore === 3 || (totalRounds === 5 && playerScore > computerScore)) {
+    console.log("Victory: You Won!!");
+  } else if (
+    computerScore === 3 ||
+    (totalRounds === 5 && playerScore < computerScore)
+  ) {
+    console.log("Defeat: You Lost!!");
+  } else if (totalRounds === 5 && playerScore === computerScore) {
+    console.log("There's No Winner.");
+  }
+  // totalRounds = 0;
+  // playerScore = 0;
+  // computerScore = 0;
+}
