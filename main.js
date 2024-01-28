@@ -73,7 +73,7 @@ let computerScore = 0;
 function game() {
   totalRounds += 1;
 
-  // Clear gamSection' HTML if there is
+  // Clear gameSection's HTML if there is
   gameSection.innerHTML = "";
 
   let roundResult = playRound(playerSelection, getComputerChoice());
