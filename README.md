@@ -1,22 +1,22 @@
-# Rock-Paper-Scissors
+# Rock-Paper-Scissors UI Version
 
-This is a simple implementation of the classic Rock, Paper, Scissors game in JavaScript. The game is played in the console and includes a best-of-five rounds format.
+This project is a revamped implementation of the classic Rock, Paper, Scissors game, now with a user interface using JavaScript. The game provides an interactive experience with improved visuals and gameplay.
 
-## How to Play
+**How to Play:**
 
-1. Open the console in your browser.
-2. Enter your choice when prompted (Rock, Paper, or Scissors).
+1. Open the HTML file or live server in your browser.
+2. Use buttons to choose (Rock, Paper, or Scissors).
+3. Enjoy the enhanced UI experience.
 
-## Scoring
+**Scoring:**
 
-- Each round result is displayed in the console, indicating whether the player won, lost, or if it's a tie.
-- The scores are updated after each round.
-- The game ends when either the player or the computer reaches a score of 3 or after the fifth round.
+- See real-time results on the UI.
+- Game ends at 3 points or after the fifth round.
 
-## Victory Conditions
+**Victory Conditions:**
 
-- If the player reaches a score of 3 before the computer, the player wins.
-- If the computer reaches a score of 3 before the player, the player loses.
-- If both the player and computer have the same score after five rounds, the game declares there's no winner.
+- Reach 3 points first to win.
+- Computer wins at 3 points.
+- A tie after five rounds is declared.
 
-Enjoy playing Rock, Paper, Scissors! 🪨📄✂️
+Enjoy the upgraded Rock, Paper, Scissors UI Version! 🪨📄✂️
