@@ -4,6 +4,9 @@ function getComputerChoice() {
   return randomEl;
 }
 
+let playerDiv = document.querySelector(".player");
+let computerDiv = document.querySelector(".computer");
+
 function playRound(playerSelection, computerSelection) {
   let result;
 
@@ -18,12 +21,23 @@ function playRound(playerSelection, computerSelection) {
   } else {
     result = `You lose! ${computerSelection} beats ${playerSelection}.`;
   }
-  console.log(`Player selected: ${playerSelection}`);
-  console.log(result);
-  // let divResults = document.createElement("div");
-  // divResults.textContent = result;
-  // document.body.appendChild(divResults);
+
+  DeleteContent();
+
+  let divResults = document.createElement("div");
+  let playerSlected = document.createElement("h3");
+  let computerSlected = document.createElement("h3");
+
+  playerSlected.textContent = `Player selected: ${playerSelection}`;
+  computerSlected.textContent = `Player selected: ${computerSelection}`;
+  divResults.textContent = result;
+
+  playerDiv.appendChild(playerSlected);
+  computerDiv.appendChild(computerSlected);
+  document.body.appendChild(divResults);
 }
+
+function DeleteContent() {}
 
 //Get Buttons
 let rock = document.querySelector("#rockBtn");
