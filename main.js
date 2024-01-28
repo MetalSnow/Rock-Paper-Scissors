@@ -62,6 +62,7 @@ scissors.addEventListener("click", () => {
   game();
 });
 
+// Get game section
 let gameSection = document.querySelector(".game");
 
 // game() variables
@@ -72,13 +73,14 @@ let computerScore = 0;
 function game() {
   totalRounds += 1;
 
+  // Clear gamSection' HTML if there is
+  gameSection.innerHTML = "";
+
   let roundResult = playRound(playerSelection, getComputerChoice());
 
   let roundNumber = document.createElement("span");
   roundNumber.textContent = `Total Rounds : ${totalRounds}`;
   gameSection.appendChild(roundNumber);
-
-  console.log(roundResult);
 
   // Update scores based on the result of the round
   let score = document.createElement("h3");
