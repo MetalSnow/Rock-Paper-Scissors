@@ -26,8 +26,8 @@ function playRound(playerSelection, computerSelection) {
   let computerSlected = document.createElement("div");
   let roundResults = document.createElement("div");
 
-  playerSlected.textContent = `Player selected: ${playerSelection}`;
-  computerSlected.textContent = `Computer selected: ${computerSelection}`;
+  playerSlected.textContent = `Player Selected :  ${playerSelection}`;
+  computerSlected.textContent = `Computer Selected :  ${computerSelection}`;
   roundResults.textContent = result;
 
   resultsContainer.appendChild(playerSlected);
@@ -83,7 +83,7 @@ function game() {
   gameSection.appendChild(roundNumber);
 
   // Update scores based on the result of the round
-  let score = document.createElement("h3");
+  let score = document.createElement("span");
 
   if (roundResult.charAt(4) === "w") {
     score.textContent = `Score: player ${++playerScore} -- computer ${computerScore}`;
@@ -96,10 +96,11 @@ function game() {
   gameSection.appendChild(score);
 
   // Determine the winner based on the final scores
-  let finalScore = document.createElement("h2");
+  let finalScore = document.createElement("p");
 
   if (playerScore === 3 || (totalRounds === 5 && playerScore > computerScore)) {
     finalScore.textContent = "Victory: You Won!!";
+    finalScore.style.backgroundColor = "#1a6b23";
     totalRounds = 0;
     playerScore = 0;
     computerScore = 0;
@@ -108,11 +109,13 @@ function game() {
     (totalRounds === 5 && playerScore < computerScore)
   ) {
     finalScore.textContent = "Defeat: You Lost!!";
+    finalScore.style.backgroundColor = "#611b1b";
     totalRounds = 0;
     playerScore = 0;
     computerScore = 0;
   } else if (totalRounds === 5 && playerScore === computerScore) {
     finalScore.textContent = "There's No Winner.";
+    finalScore.style.backgroundColor = "#544d4d";
     totalRounds = 0;
     playerScore = 0;
     computerScore = 0;
