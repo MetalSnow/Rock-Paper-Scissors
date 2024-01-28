@@ -62,8 +62,7 @@ scissors.addEventListener("click", () => {
   game();
 });
 
-let roundSection = document.querySelector(".rounds");
-let scoreSection = document.querySelector(".score");
+let gameSection = document.querySelector(".game");
 
 // game() variables
 let totalRounds = 0;
@@ -74,30 +73,47 @@ function game() {
   totalRounds += 1;
 
   let roundResult = playRound(playerSelection, getComputerChoice());
-  console.log("Round: ", totalRounds);
+
+  let roundNumber = document.createElement("span");
+  roundNumber.textContent = `Total Rounds : ${totalRounds}`;
+  gameSection.appendChild(roundNumber);
+
   console.log(roundResult);
 
   // Update scores based on the result of the round
+  let score = document.createElement("h3");
+
   if (roundResult.charAt(4) === "w") {
-    console.log(`Score: player ${++playerScore} -- computer ${computerScore}`);
+    score.textContent = `Score: player ${++playerScore} -- computer ${computerScore}`;
   } else if (roundResult.charAt(4) === "l") {
-    console.log(`Score: player ${playerScore} -- computer ${++computerScore}`);
+    score.textContent = `Score: player ${playerScore} -- computer ${++computerScore}`;
   } else {
-    console.log(`Score: player ${playerScore} -- computer ${computerScore}`);
+    score.textContent = `Score: player ${playerScore} -- computer ${computerScore}`;
   }
 
+  gameSection.appendChild(score);
+
   // Determine the winner based on the final scores
+  let finalScore = document.createElement("h2");
+
   if (playerScore === 3 || (totalRounds === 5 && playerScore > computerScore)) {
-    console.log("Victory: You Won!!");
+    finalScore.textContent = "Victory: You Won!!";
+    totalRounds = 0;
+    playerScore = 0;
+    computerScore = 0;
   } else if (
     computerScore === 3 ||
     (totalRounds === 5 && playerScore < computerScore)
   ) {
-    console.log("Defeat: You Lost!!");
+    finalScore.textContent = "Defeat: You Lost!!";
+    totalRounds = 0;
+    playerScore = 0;
+    computerScore = 0;
   } else if (totalRounds === 5 && playerScore === computerScore) {
-    console.log("There's No Winner.");
+    finalScore.textContent = "There's No Winner.";
+    totalRounds = 0;
+    playerScore = 0;
+    computerScore = 0;
   }
-  // totalRounds = 0;
-  // playerScore = 0;
-  // computerScore = 0;
+  gameSection.appendChild(finalScore);
 }
