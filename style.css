@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  background-color: bisque;
+}
+
+img {
+  width: 100px;
+  padding: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container {
+  box-sizing: border-box;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 700;
+  color: #335b33;
+  background-color: rgb(244, 207, 162);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+h3 {
+  text-decoration: underline;
+  margin: 0px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+}
+
+.game > span {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #3b3636;
+}
+
+.game > p {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #544d4d;
+  color: white;
+  padding: 9px 0px;
+}
+
+.results {
+  max-width: 290px;
+  max-height: auto;
+  justify-content: flex-end;
+  font-weight: 500;
+  font-size: 17px;
+  box-sizing: border-box;
+  padding: 2rem;
+  border: 1px solid black;
+  line-height: 2rem;
+  background-color: rgb(251, 213, 166);
+}
+
+.results > div:last-child {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 20px;
+  color: #167188;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+button {
+  font-weight: 700;
+  background-color: #335b33;
+  color: white;
+  padding: 12px 20px;
+  width: 100px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  background-color: #abd0bf;
+  color: #335b33;
+  transition: 0.3s;
+}
